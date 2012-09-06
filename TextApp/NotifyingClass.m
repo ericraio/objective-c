@@ -6,12 +6,23 @@
 
 - (IBAction)displaySomeText:(id)sender
 {
-    WonderfulNumber *myWonderfulNumber = [[WonderfulNumber alloc] init];
-    [myWonderfulNumber setStoredNumber:M_PI];
+    NSString *firstObject = @"Milk";
+    NSString *secondObject = @"Eggs";
+    NSString *thirdObject = @"Butter";
     
-    float wonderfulValue = [myWonderfulNumber storedNumber];
+    NSArray *shoppingListArray = [NSArray arrayWithObjects:firstObject, secondObject, thirdObject, nil];
     
-    [textView insertText:[NSString stringWithFormat:@"My Wonderful Value = %f\n", wonderfulValue]];
+    NSString *stringToOutput = @"The shopping list is: ";
+    stringToOutput = [[stringToOutput stringByAppendingString:[shoppingListArray componentsJoinedByString:@", "]] stringByAppendingString:@"\n"];
+    
+    [textView insertText:stringToOutput];
+    
+    stringToOutput = @"\n\nThe first item in the list is: ";
+    
+    stringToOutput = [[stringToOutput stringByAppendingString:[shoppingListArray objectAtIndex:1]] stringByAppendingString:@"\n\n"];
+    
+    [textView insertText:stringToOutput];
+    
     
 }
 
