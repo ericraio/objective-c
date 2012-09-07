@@ -11,19 +11,13 @@
     NSString *thirdObject = @"Butter";
     
     NSArray *shoppingListArray = [NSArray arrayWithObjects:firstObject, secondObject, thirdObject, nil];
+    NSString *typedValue = [textField stringValue];
+    shoppingListArray = [shoppingListArray arrayByAddingObject:typedValue];
     
     NSString *stringToOutput = @"The shopping list is: ";
     stringToOutput = [[stringToOutput stringByAppendingString:[shoppingListArray componentsJoinedByString:@", "]] stringByAppendingString:@"\n"];
     
     [textView insertText:stringToOutput];
-    
-    stringToOutput = @"\n\nThe first item in the list is: ";
-    
-    stringToOutput = [[stringToOutput stringByAppendingString:[shoppingListArray objectAtIndex:1]] stringByAppendingString:@"\n\n"];
-    
-    [textView insertText:stringToOutput];
-    
-    
 }
 
 - (float)generateValue:(float *)originalValue
